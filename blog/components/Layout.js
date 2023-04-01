@@ -4,8 +4,9 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import Utterances from './Utterances'
 
-const name = 'CHOI JEEMIN'
+const name = 'dlzagu'
 export const siteTitle = 'TECH BLOG'
 
 export default function Layout({ children, home }) {
@@ -37,7 +38,7 @@ export default function Layout({ children, home }) {
   }
 
   return (
-    <div className="bg-pink-50 dark:bg-black text-gray-800 dark:text-gray-200 h-screen">
+    <div className="bg-pink-50 dark:bg-black text-gray-800 dark:text-gray-200 h-full">
       <div className={styles.container}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
@@ -98,11 +99,14 @@ export default function Layout({ children, home }) {
         </header>
         <main>{children}</main>
         {!home && (
-          <div className={styles.backToHome}>
-            <Link href="/">
-              <a>← Back to home</a>
-            </Link>
-          </div>
+          <>
+            <Utterances />
+            <div className={styles.backToHome}>
+              <Link href="/">
+                <a>← Back to home</a>
+              </Link>
+            </div>
+          </>
         )}
       </div>
     </div>
