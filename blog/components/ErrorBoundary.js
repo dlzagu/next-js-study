@@ -20,6 +20,7 @@ class ErrorBoundary extends React.Component {
 
   render() {
     if (this.state.hasError) {
+      ㅠㅠ
       if (this.props.fallbackComponent) {
         return this.props.fallbackComponent
       }
@@ -29,6 +30,8 @@ class ErrorBoundary extends React.Component {
           <h2>Error occured!!</h2>
           <details style={{ whiteSpace: 'pre-wrap' }}>
             {this.state.error && this.state.error.toString()}
+            <br />
+            {this.state.errorInfo && this.state.errorInfo.componentStack}
           </details>
         </div>
       )
